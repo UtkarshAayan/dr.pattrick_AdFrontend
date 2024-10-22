@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Manage Basic Profile</h2>
+
+  <!-- Form to create/update category and subcategories -->
+  <div class="form-group">
+    <label for="categoryName">Health Organ Name:</label>
+    <input id="categoryName" [(ngModel)]="newCategory.name" class="form-control" placeholder="Enter health organ name" />
+  </div>
+
+  <div class="form-group">
+    <label>Health Organ or Diagnosis:</label>
+    <ul>
+      <li *ngFor="let sub of newCategory.subcategories; let i = index">
+        {{ sub }} <button (click)="removeSubcategory(i)" class="btn btn-danger btn-sm">Remove</button>
+      </li>
+    </ul>
+    <input #subcategoryInput class="form-control" placeholder="Enter organ or diagnosis" />
+    <button (click)="addSubcategory(subcategoryInput.value)" class="btn btn-primary btn-sm mt-2">Add organ or diagnosis</button>
+  </div>
+
+  <!-- Buttons for create/update -->
+  <button *ngIf="!selectedCategoryId" (click)="createCategory()" class="btn btn-success btn-xs">Create Category</button>
+  <button *ngIf="selectedCategoryId" (click)="updateCategory()" class="btn btn-warning btn-xs">Update Category</button>
+
+  <hr>
+
+  <!-- List of categories -->
+  <h3>All Categories</h3>
+  <ul class="list-group">
+    <li *ngFor="let category of categories" class="list-group-item">
+      <h5>{{ category.name }}</h5>
+      <ul>
+        <li *ngFor="let sub of category.subcategories">{{ sub.name }}</li>
+      </ul>
+      <button (click)="editCategory(category)" class="btn btn-info btn-xs me-2">Edit</button>
+      <button (click)="deleteCategory(category._id)" class="btn btn-danger btn-xs">Delete</button>
+    </li>
+  </ul>
+</div>
