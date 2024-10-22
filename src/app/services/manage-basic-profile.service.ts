@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ManageBasicProfileService {
 
-  private apiUrl = 'http://localhost:3000/api/categories'; 
+  private apiUrl = 'http://44.196.192.232:3127/api/categories'; 
 
   constructor(private http: HttpClient) { }
 

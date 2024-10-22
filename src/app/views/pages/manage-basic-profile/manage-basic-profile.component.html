@@ -19,9 +19,11 @@
   </div>
 
   <!-- Buttons for create/update -->
-  <button *ngIf="!selectedCategoryId" (click)="createCategory()" class="btn btn-success btn-xs">Create Category</button>
-  <button *ngIf="selectedCategoryId" (click)="updateCategory()" class="btn btn-warning btn-xs">Update Category</button>
-
+    <button *ngIf="selectedCategoryId" (click)="updateCategory()" class="btn btn-warning btn-xs">Update Category</button>
+    <button *ngIf="!selectedCategoryId" (click)="createCategory()" class="btn btn-success btn-xs">Create Category</button>
+   
+  
+  
   <hr>
 
   <!-- List of categories -->
